@@ -5540,3 +5540,7 @@ out_disable:
 DECLARE_PCI_FIXUP_CLASS_FINAL(PCI_VENDOR_ID_NVIDIA, 0x13b1,
 			      PCI_CLASS_DISPLAY_VGA, 8,
 			      quirk_reset_lenovo_thinkpad_p50_nvgpu);
+
+// Polaris11 cards can fail on bus reset
+DECLARE_PCI_FIXUP_HEADER(0x1002, 0x67ff, quirk_no_bus_reset);
+DECLARE_PCI_FIXUP_HEADER(0x1002, 0xaae0, quirk_no_bus_reset);
